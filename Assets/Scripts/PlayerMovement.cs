@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator animator;
     public float movementSpeed = 2f;
     float speedLimiter = 0.75f;
     float horizontalMovement = 0f;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -24,10 +26,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             movementInputPressed = true;
+            animator.SetBool("isMoving", true);
         }
         else
         {
             movementInputPressed = false;
+            animator.SetBool("isMoving", false);
         }
     }
 
