@@ -6,7 +6,7 @@ using TMPro;
 public class Inventory : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    private int keyQuantity;
+    public int keyQuantity;
     public void ObtainKey()
     {
         keyQuantity += 1;
