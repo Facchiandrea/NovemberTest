@@ -57,7 +57,7 @@ public class TakingDamage : MonoBehaviour
     }
     private IEnumerator FlashinCoroutine()
     {
-        Debug.Log("Sas");
+
         SpriteRenderer playerSprite = this.gameObject.GetComponent<SpriteRenderer>();
 
         Color defaultColor = playerSprite.color;
