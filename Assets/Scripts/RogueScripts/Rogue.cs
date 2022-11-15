@@ -21,7 +21,7 @@ public class Rogue : MonoBehaviour
             this.gameObject.transform.position = waypoints[waypointIndex].transform.position;
 
         }
-
+        oldPosition = this.gameObject.transform.position.x;
 
     }
     void Start()
@@ -36,6 +36,7 @@ public class Rogue : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(oldPosition);
         if (transform.position.x > oldPosition)
         {
             SR.flipX = false;
