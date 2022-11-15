@@ -21,6 +21,8 @@ public class Rogue_Arrow : MonoBehaviour
         if (collision.CompareTag("ArrowCollider"))
         {
             Destroy(this.gameObject);
+            FindObjectOfType<TakingDamage>().TakeDamage();
+
         }
     }
 }

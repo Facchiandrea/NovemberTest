@@ -36,7 +36,7 @@ public class Rogue : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(oldPosition);
+
         if (transform.position.x > oldPosition)
         {
             SR.flipX = false;
