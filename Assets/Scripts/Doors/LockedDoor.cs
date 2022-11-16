@@ -31,7 +31,7 @@ public class LockedDoor : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && FindObjectOfType<Inventory>().keyQuantity > 0 && open == false || Input.GetKeyDown(KeyCode.F) && FindObjectOfType<Inventory>().keyQuantity > 0 && open == false || Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<Inventory>().keyQuantity > 0 && open == false)
+        if (Input.GetKeyDown(KeyCode.E) && FindObjectOfType<Inventory>().keyQuantity > 0 && open == false && playerInRange || Input.GetKeyDown(KeyCode.F) && FindObjectOfType<Inventory>().keyQuantity > 0 && open == false && playerInRange || Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<Inventory>().keyQuantity > 0 && open == false && playerInRange)
         {
             StartCoroutine(Open());
         }
