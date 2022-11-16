@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Explosions : MonoBehaviour
 {
-    public GameObject mage;
     public bool active;
     private void OnTriggerStay2D(Collider2D collision)
     {
