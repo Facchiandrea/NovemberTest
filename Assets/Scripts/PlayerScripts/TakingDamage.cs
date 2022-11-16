@@ -39,7 +39,7 @@ public class TakingDamage : MonoBehaviour
 
     private void Death()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
 
     }
 

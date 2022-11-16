@@ -7,6 +7,16 @@ public class Inventory : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public int keyQuantity;
+
+    private void Start()
+    {
+        if (AudioManager.instance != null)
+        {
+
+            AudioManager.instance.FadeIn("GameMusic");
+        }
+
+    }
     public void ObtainKey()
     {
         keyQuantity += 1;
