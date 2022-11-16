@@ -11,7 +11,7 @@ public class Rogue : MonoBehaviour
     int waypointIndex;
     public float movementSpeed = 4f;
     SpriteRenderer SR;
-
+    public bool destroyed;
     public float oldPosition;
 
     private void Awake()
@@ -49,7 +49,11 @@ public class Rogue : MonoBehaviour
     }
     public void Shoot()
     {
-        GameObject.Instantiate(ammoType, firePoint.transform.position, ammoType.transform.rotation);
+        if (destroyed == false)
+        {
+
+            GameObject.Instantiate(ammoType, firePoint.transform.position, ammoType.transform.rotation);
+        }
 
     }
     public void FixedUpdate()

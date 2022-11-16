@@ -14,6 +14,7 @@ public class Despawner : MonoBehaviour
             Invoke("DestroyRogue", 2f);
 
             rogue.GetComponent<SpriteRenderer>().enabled = false;
+            rogue.GetComponent<Rogue>().destroyed = true;
 
             rogue.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             rogue.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
