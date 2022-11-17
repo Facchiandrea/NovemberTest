@@ -8,14 +8,28 @@ public class Mage : MonoBehaviour
     public GameObject[] explosions;
     public int explosionIndex;
     public float timeBetweenExplosions = 0.5f;
+    bool playerInRange;
+    bool blasting;
 
 
-    private void Start()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(Explosion());
+        playerInRange = true;
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        playerInRange = false;
     }
     private void Update()
     {
+        if (blasting == false && playerInRange)
+        {
+            StartCoroutine(Explosion());
+        }
+
         if (player.transform.position.x > transform.position.x)
         {
             this.gameObject.transform.localScale = new Vector3(1, 1, 1);
@@ -30,6 +44,8 @@ public class Mage : MonoBehaviour
 
     public IEnumerator Explosion()
     {
+
+        blasting = true;
         foreach (GameObject explosion in explosions)
         {
             float randomNumber = Random.Range(0, 10);
@@ -51,8 +67,14 @@ public class Mage : MonoBehaviour
             explosionIndex = 0;
         }
         yield return new WaitForSeconds(timeBetweenExplosions);
+        blasting = false;
 
-        yield return Explosion();
+        // if (playerInRange)
+        // {
+        //
+        //     yield return Explosion();
+        // }
+
 
     }
 }

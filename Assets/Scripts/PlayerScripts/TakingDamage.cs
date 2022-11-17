@@ -12,6 +12,7 @@ public class TakingDamage : MonoBehaviour
     public int HP;
     private bool invulnerable;
     public float invulnerabilityTime = 1f;
+    public GameObject deathScreen;
     void Start()
     {
         AdjustUI();
@@ -22,6 +23,12 @@ public class TakingDamage : MonoBehaviour
     {
         if (invulnerable == false)
         {
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.FadeIn("Thud");
+
+            }
+
             HP -= 1;
             AdjustUI();
             invulnerable = true;
@@ -39,8 +46,8 @@ public class TakingDamage : MonoBehaviour
 
     private void Death()
     {
-        SceneManager.LoadScene(1);
-
+        deathScreen.SetActive(true);
+        Destroy(this.gameObject);
     }
 
     public void Healing()

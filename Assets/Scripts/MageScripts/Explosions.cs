@@ -9,7 +9,6 @@ public class Explosions : MonoBehaviour
     {
         if (collision.CompareTag("SpikeTrigger") && active)
         {
-            print("Damaged");
             FindObjectOfType<TakingDamage>().TakeDamage();
 
         }
