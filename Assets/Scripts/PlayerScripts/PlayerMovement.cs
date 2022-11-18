@@ -7,15 +7,20 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     public float movementSpeed = 2f;
-    float speedLimiter = 0.75f;
+    float speedLimiter = 0.5f;
     float horizontalMovement = 0f;
     float verticalMovement = 0f;
     private SpriteRenderer spriteRenderer;
     private bool movementInputPressed;
+    public bool diagonalMovement;
+    private float initialMSpeed;
+    public bool speedReduced;
+
 
 
     private void Awake()
     {
+        initialMSpeed = movementSpeed;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,6 +28,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (diagonalMovement && speedReduced == false)
+        {
+            movementSpeed = movementSpeed * speedLimiter;
+            speedReduced = true;
+        }
+        else
+        {
+            speedReduced = false;
+            movementSpeed = initialMSpeed;
+        }
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             movementInputPressed = true;
@@ -37,35 +53,66 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        horizontalMovement = Input.GetAxis("Horizontal");
-        verticalMovement = Input.GetAxis("Vertical");
 
-        if (horizontalMovement != 0 && verticalMovement != 0)
+        //horizontalMovement = Input.GetAxis("Horizontal");
+        //verticalMovement = Input.GetAxis("Vertical");
+
+        if (Input.GetKey(KeyCode.W))
         {
-            horizontalMovement *= speedLimiter;
-            verticalMovement *= speedLimiter;
+            transform.Translate(Vector3.up * Time.fixedDeltaTime * movementSpeed);
         }
-
-
-        rb.velocity = new Vector2(horizontalMovement * movementSpeed, verticalMovement * movementSpeed);
-
-        if (movementInputPressed == false)
+        if (Input.GetKey(KeyCode.S))
         {
-            rb.velocity = new Vector2(0, 0);
-
+            transform.Translate(-1 * Vector3.up * Time.fixedDeltaTime * movementSpeed);
         }
-
-
-        if (horizontalMovement < 0)
+        if (Input.GetKey(KeyCode.A))
         {
+            transform.Translate(-1 * Vector3.right * Time.fixedDeltaTime * movementSpeed);
             spriteRenderer.flipX = true;
-        }
 
-        else if (horizontalMovement > 0)
+        }
+        if (Input.GetKey(KeyCode.D))
         {
+            transform.Translate(Vector3.right * Time.fixedDeltaTime * movementSpeed);
             spriteRenderer.flipX = false;
+
         }
 
+
+
+
+        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S))
+        {
+            diagonalMovement = true;
+        }
+        else
+        {
+            diagonalMovement = false;
+
+        }
+
+        /*
+
+       rb.velocity = new Vector2(horizontalMovement * movementSpeed, verticalMovement * movementSpeed);
+
+       if (movementInputPressed == false)
+       {
+           rb.velocity = new Vector2(0, 0);
+
+       }
+
+
+       if (horizontalMovement < 0)
+       {
+           spriteRenderer.flipX = true;
+       }
+
+       else if (horizontalMovement > 0)
+       {
+           spriteRenderer.flipX = false;
+       }
+       */
 
     }
+
 }
