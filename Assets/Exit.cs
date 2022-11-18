@@ -31,6 +31,9 @@ public class Exit : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && open == false && playerInRange || Input.GetKeyDown(KeyCode.F) && open == false && playerInRange || Input.GetKeyDown(KeyCode.Space) && open == false && playerInRange)
         {
+            AudioManager.instance.Stop("GameMusic");
+            AudioManager.instance.FadeIn("WinMusic");
+
             winscreen.SetActive(true);
             Destroy(player);
         }

@@ -584,6 +584,15 @@ MonoBehaviour:
     fadeInTime: 1
     fadeOutTime: 2
     source: {fileID: 0}
+  - name: Win Music
+    clip: {fileID: 8300000, guid: 546346a075f9d8c4cb9efb6834c23fd2, type: 3}
+    loop: 1
+    type: 0
+    priority: 128
+    volume: 0.2
+    fadeInTime: 0
+    fadeOutTime: 0
+    source: {fileID: 0}
   - name: Plin
     clip: {fileID: 8300000, guid: 8c320cdf1441a0e49ad83791b819dc20, type: 3}
     loop: 0
