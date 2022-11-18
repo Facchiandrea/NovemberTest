@@ -18,6 +18,7 @@ public class TakingDamage : MonoBehaviour
     void Start()
     {
         AdjustUI();
+        godMode = false;
     }
 
     private void Update()
@@ -28,6 +29,16 @@ public class TakingDamage : MonoBehaviour
             crown.SetActive(true);
             HP = 99999;
         }
+        else if (Input.GetKeyDown(KeyCode.Return) && godMode == true)
+        {
+            godMode = false;
+            crown.SetActive(false);
+            HP = 3;
+            AdjustUI();
+
+        }
+
+
     }
 
     public void TakeDamage()
