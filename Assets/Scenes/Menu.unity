@@ -584,7 +584,7 @@ MonoBehaviour:
     fadeInTime: 1
     fadeOutTime: 2
     source: {fileID: 0}
-  - name: Win Music
+  - name: WinMusic
     clip: {fileID: 8300000, guid: 546346a075f9d8c4cb9efb6834c23fd2, type: 3}
     loop: 1
     type: 0
