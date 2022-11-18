@@ -58,7 +58,6 @@ public class LeverDoor : MonoBehaviour
     private IEnumerator Open()
     {
         open = true;
-        FindObjectOfType<Inventory>().UseKey();
         Lever2.SetActive(true);
         Lever1.SetActive(false);
 
