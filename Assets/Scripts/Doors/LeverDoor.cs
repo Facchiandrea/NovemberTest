@@ -42,7 +42,7 @@ public class LeverDoor : MonoBehaviour
         {
             if (player.transform.position.y > transform.position.y)
             {
-                GateP1.GetComponent<SpriteRenderer>().sortingOrder = 100;
+                GateP1.GetComponent<SpriteRenderer>().sortingOrder = 101;
 
             }
             else

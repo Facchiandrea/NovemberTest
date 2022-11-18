@@ -8,21 +8,12 @@ public class Mage : MonoBehaviour
     public GameObject[] explosions;
     public int explosionIndex;
     public float timeBetweenExplosions = 0.5f;
-    bool playerInRange;
+    public bool playerInRange;
     bool blasting;
 
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        playerInRange = true;
 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        playerInRange = false;
-    }
     private void Update()
     {
         if (blasting == false && playerInRange)
@@ -48,8 +39,8 @@ public class Mage : MonoBehaviour
         blasting = true;
         foreach (GameObject explosion in explosions)
         {
-            float randomNumber = Random.Range(0, 10);
-            if (randomNumber < 6)
+            float randomNumber = Random.Range(0, 10f);
+            if (randomNumber < 7f)
             {
                 explosion.transform.GetChild(0).gameObject.SetActive(true);
                 explosion.GetComponent<Explosions>().ExplosionTriggered();
