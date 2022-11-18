@@ -10,6 +10,12 @@ public class HP_Item : MonoBehaviour
         {
             if (FindObjectOfType<TakingDamage>().HP < 3)
             {
+                if (AudioManager.instance != null)
+                {
+                    AudioManager.instance.FadeIn("Plin");
+
+                }
+
                 Destroy(this.gameObject);
                 FindObjectOfType<TakingDamage>().Healing();
             }

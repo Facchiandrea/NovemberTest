@@ -8,6 +8,12 @@ public class Key_Item : MonoBehaviour
     {
         if (collision.CompareTag("ArrowCollider"))
         {
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.FadeIn("Plin");
+
+            }
+
             Destroy(this.gameObject);
             FindObjectOfType<Inventory>().ObtainKey();
 

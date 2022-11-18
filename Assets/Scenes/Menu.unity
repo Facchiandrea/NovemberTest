@@ -569,7 +569,7 @@ MonoBehaviour:
   - name: Thud
     clip: {fileID: 8300000, guid: 2cb6160f87d9a7146b91556f1903b18b, type: 3}
     loop: 0
-    type: 0
+    type: 1
     priority: 128
     volume: 1
     fadeInTime: 0
@@ -579,6 +579,15 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d088480a8fd6df2418ddd9b1b9f53efd, type: 3}
     loop: 1
     type: 0
+    priority: 128
+    volume: 0.1
+    fadeInTime: 1
+    fadeOutTime: 2
+    source: {fileID: 0}
+  - name: Plin
+    clip: {fileID: 8300000, guid: 8c320cdf1441a0e49ad83791b819dc20, type: 3}
+    loop: 0
+    type: 1
     priority: 128
     volume: 0.1
     fadeInTime: 1
