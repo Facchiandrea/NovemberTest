@@ -7,12 +7,14 @@ public class MageTrigger : MonoBehaviour
     public Mage mage;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        mage.playerInRange = true;
+        if (collision.CompareTag("SpikeTrigger"))
+            mage.playerInRange = true;
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        mage.playerInRange = false;
+        if (collision.CompareTag("SpikeTrigger"))
+            mage.playerInRange = false;
     }
 }

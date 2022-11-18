@@ -10,6 +10,7 @@ public class Mage : MonoBehaviour
     public float timeBetweenExplosions = 0.5f;
     public bool playerInRange;
     bool blasting;
+    public float percentage = 7f;
 
 
 
@@ -40,7 +41,7 @@ public class Mage : MonoBehaviour
         foreach (GameObject explosion in explosions)
         {
             float randomNumber = Random.Range(0, 10f);
-            if (randomNumber < 7f)
+            if (randomNumber < percentage)
             {
                 explosion.transform.GetChild(0).gameObject.SetActive(true);
                 explosion.GetComponent<Explosions>().ExplosionTriggered();
