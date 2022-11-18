@@ -13,11 +13,22 @@ public class TakingDamage : MonoBehaviour
     private bool invulnerable;
     public float invulnerabilityTime = 1f;
     public GameObject deathScreen;
+    public GameObject crown;
+    public bool godMode;
     void Start()
     {
         AdjustUI();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && godMode == false)
+        {
+            godMode = true;
+            crown.SetActive(true);
+            HP = 99999;
+        }
+    }
 
     public void TakeDamage()
     {
