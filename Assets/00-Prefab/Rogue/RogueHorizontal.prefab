@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   movementSpeed: 2
+  destroyed: 0
   oldPosition: 0
 --- !u!1 &6136826926433552067
 GameObject:
@@ -521,6 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rogue: {fileID: 6136826926131219218}
+  poof: {fileID: 0}
 --- !u!61 &3845205275334587147
 BoxCollider2D:
   m_ObjectHideFlags: 0
